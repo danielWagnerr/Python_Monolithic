@@ -11,7 +11,7 @@ Instruction:
 1. Clone the repository.
 2. Needs Python 3.* .
 3. Initiate a new `virtualenv venv` and install the `requirements.txt`.
-4. Run the main.py and use a tool like postman to make de requests.
+4. Run the main.py and use a tool like postman to make the requests.
 
 Has a simple automatic id system creation.
 
@@ -19,7 +19,9 @@ It implements the following end points:
 
     GET / : Welcome Message
         body: Nothing
-        
+    
+    Users Module:
+
     GET /users : Return All Users list
         body: Nothing
     POST /users : Create User
@@ -42,6 +44,8 @@ It implements the following end points:
         body: Nothing
     DELETE /users/<user_id> : Delete User,
         body: Nothing
+
+    Books Module:
 
     GET /books : Return All Books list
         body: Nothing
@@ -71,6 +75,8 @@ It implements the following end points:
         body: Nothing
     POST /books/vacate/<book_id>/<user_id>: User vacate a book
         body: Nothing
+
+    Reports Module:
     
     GET /<user_id>/reports : Get User Report
         body: Nothing
