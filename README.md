@@ -1,6 +1,6 @@
 # Python_Monolithic
-A proof of concept of a monolithic architecture written in python and using flask and json
-Simulate a simple library system.
+ A proof of concept of a monolithic architecture written in python and using flask and json.
+ Simulate a simple library system.
 
 Architecture Example:
 
