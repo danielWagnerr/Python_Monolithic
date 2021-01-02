@@ -35,7 +35,7 @@ def user_create():
 
 @app.route("/users/<user_id>", methods=['PUT'])
 def user_update(user_id):
-    ''' Create User '''
+    ''' Update User '''
     response = updateUser(user_id,request.json)
     if response:
         return jsonify(response)
@@ -109,23 +109,24 @@ def book_delete(book_id):
     
     return 'Error',404
 
-@app.route("/books/<book_id>/<user_id>", methods=['POST'])
+@app.route("/books/take/<book_id>/<user_id>", methods=['POST'])
 def book_take(book_id,user_id):
-    ''' Delete Book '''
+    ''' User takes a specific book '''
     response = takeBook(book_id,user_id)
     if response:
         return jsonify(response)
     
     return 'Error',404
 
-@app.route("/books/<book_id>/<user_id>", methods=['POST'])
+@app.route("/books/vacate/<book_id>/<user_id>", methods=['POST'])
 def book_vacate(book_id,user_id):
-    ''' Delete Book '''
+    ''' User vacate a book '''
     response = vacateBook(book_id,user_id)
     if response:
         return jsonify(response)
     
     return 'Error',404
+
 #-------------------------------|
 # Rest Calls for Reports Module.|
 #---------------------------------|
