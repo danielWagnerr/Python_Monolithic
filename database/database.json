@@ -1,0 +1,51 @@
+{
+    "lastUserId": 1,
+    "lastBookId": 1,
+    "users": {
+        "0": {
+            "FirstName": "James",
+            "LastName": "Bond",
+            "Email": "JamesBond@Email.com",
+            "id": 0,
+            "BooksLocations": [
+                "1"
+            ]
+        },
+        "1": {
+            "FirstName": "Warren",
+            "LastName": "Buffett",
+            "Email": "WarrenBuffett@Email.com",
+            "id": 1,
+            "BooksLocations": [
+                "0"
+            ]
+        }
+    },
+    "books": {
+        "0": {
+            "Name": "Scrum",
+            "Authors": [
+                "Jeff Sutherland",
+                "J. J. Sutherland"
+            ],
+            "Quantity": 8,
+            "UsersLocations": [
+                "1"
+            ],
+            "id": 0
+        },
+        "1": {
+            "Name": "Clean Code: A Handbook of Agile Software Craftsmanship",
+            "Authors": [
+                "Robert C. Martin",
+                "Michael C. Feathers",
+                "Timothy R. Ottinger"
+            ],
+            "Quantity": 5,
+            "UsersLocations": [
+                "0"
+            ],
+            "id": 1
+        }
+    }
+}
