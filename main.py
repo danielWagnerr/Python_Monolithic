@@ -129,9 +129,9 @@ def book_vacate(book_id,user_id):
 
 #-------------------------------|
 # Rest Calls for Reports Module.|
-#---------------------------------|
+#-------------------------------|
 
-@app.route("/<user_id>/reports", methods=['GET'])
+@app.route("reports/<user_id>", methods=['GET'])
 def report_user(user_id):
     ''' Return All Books list '''
     response = getReportUser(user_id)

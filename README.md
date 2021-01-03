@@ -78,5 +78,5 @@ It implements the following end points:
 
     Reports Module:
     
-    GET /<user_id>/reports : Get User Report
+    GET reports/<user_id> : Get User Report
         body: Nothing
