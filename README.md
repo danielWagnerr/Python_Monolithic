@@ -2,7 +2,7 @@
  A proof of concept of a monolithic architecture written in python and using flask and json.
  Simulate a simple library system.
 
-Architecture Example:
+Architecture based Example (not equals, just simulates the interactions and comunication workflow):
 
 ![monolithic](https://raw.githubusercontent.com/LucasGab/Python_Monolithic/master/monolithic.png)
 
