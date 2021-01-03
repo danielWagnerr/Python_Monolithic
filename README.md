@@ -54,8 +54,7 @@ It implements the following end points:
         {
             "Name":"Scrum",
             "Authors":["Jeff Sutherland","J. J. Sutherland"],
-            "Quantity": 10,
-            "UsersLocations": []
+            "Quantity": 10
         }
 
     PUT /books/<book_id> : Update Book
@@ -63,8 +62,7 @@ It implements the following end points:
         {
             "Name":"Scrum",
             "Authors":["Jeff Sutherland","J. J. Sutherland"],
-            "Quantity": 5,
-            "UsersLocations": []
+            "Quantity": 5
         }
 
     GET /books/<book_id> : Get Book Data

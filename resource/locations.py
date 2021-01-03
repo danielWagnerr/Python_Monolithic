@@ -98,7 +98,7 @@ def takeBook(book_id,user_id):
         
         if (book_id in jsonDB['books']) and (user_id in jsonDB['users']):
             if "UsersLocations" not in jsonDB['books'][book_id]:
-                jsonDB['books']['UsersLocations'] = []
+                jsonDB['books'][book_id]['UsersLocations'] = []
             if "BooksLocations" not in jsonDB['users'][user_id]:
                 jsonDB['users'][user_id]['BooksLocations'] = []
             
@@ -143,14 +143,12 @@ if __name__ == '__main__':
     book = {
         "Name":"Scrum",
         "Authors":["Jeff Sutherland","J. J. Sutherland"],
-        "Quantity": 10,
-        "UsersLocations": []
+        "Quantity": 10
     }
     book2 = {
         "Name":"Clean Code: A Handbook of Agile Software Craftsmanship",
         "Authors":["Robert C. Martin","Michael C. Feathers","Timothy R. Ottinger"],
-        "Quantity": 5,
-        "UsersLocations": []
+        "Quantity": 5
     }
     '''
     pass
