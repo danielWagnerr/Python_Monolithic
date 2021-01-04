@@ -1,21 +1,24 @@
 # Python_Monolithic
  A proof of concept of a monolithic architecture written in python and using flask and json.
  Simulate a simple library system.
+ 
+Exercise response of course in Digital Innovation One: Fundamentals of systems architecture ("Fundamentos de arquitetura de sistemas") - module: Architectural concepts in Internet applications ("Conceitos de arquitetura em aplicações para Internet"), class taught by [Jefferson Stachelski](https://github.com/jeffhsta).
+Exercises: https://github.com/jeffhsta/fundamentos_arquitetura
+
+Has a simple automatic id system creation.
 
 Architecture based Example (not equals, just simulates the interactions and comunication workflow):
 
 ![monolithic](https://raw.githubusercontent.com/LucasGab/Python_Monolithic/master/monolithic.png)
 
-Instruction:
+# Instruction
 
 1. Clone the repository.
 2. Needs Python 3.* .
 3. Initiate a new `virtualenv venv` and install the `requirements.txt`.
 4. Run the main.py and use a tool like postman to make the requests.
 
-Has a simple automatic id system creation.
-
-It implements the following end points:
+# End Points
 
     GET / : Welcome Message
         body: Nothing
