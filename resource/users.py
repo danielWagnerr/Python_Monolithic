@@ -3,99 +3,86 @@ import os
 
 database_path = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
 
-def getUsers():
+
+def get_users():
     with open('{}/database/database.json'.format(database_path), "r") as database:
-        jsonDB = json.load(database)
+        json_db = json.load(database)
 
-    if 'users' in jsonDB:
-        return jsonDB['users']
+    if 'users' in json_db:
+        return json_db['users']
 
-def getUser(user_id):
+
+def get_user(user_id):
     user_id = str(user_id)
 
     with open('{}/database/database.json'.format(database_path), "r") as database:
-        jsonDB = json.load(database)
+        json_db = json.load(database)
 
-    if 'users' in jsonDB:
-        if user_id in jsonDB['users']:
-            return jsonDB['users'][user_id]
+    if 'users' in json_db:
+        if user_id in json_db['users']:
+            return json_db['users'][user_id]
 
-def createUser(user):
+
+def create_user(user):
     with open('{}/database/database.json'.format(database_path), "r") as database:
-        jsonDB = json.load(database)
+        json_db = json.load(database)
     with open('{}/database/database.json'.format(database_path), "w") as database:
-        if 'users' not in jsonDB:
-            jsonDB['users'] = {}
-        if 'lastUserId' not in jsonDB:
-            jsonDB['lastUserId'] = -1
+        if 'users' not in json_db:
+            json_db['users'] = {}
+        if 'lastUserId' not in json_db:
+            json_db['lastUserId'] = -1
         
-        lastid = jsonDB['lastUserId']
+        lastid = json_db['lastUserId']
         
-        jsonDB['users'][lastid+1] = user
-        jsonDB['users'][lastid+1]['id'] = lastid+1
-        jsonDB['lastUserId'] = lastid+1
-        json.dump(jsonDB,database,indent=4)
+        json_db['users'][lastid+1] = user
+        json_db['users'][lastid+1]['id'] = lastid+1
+        json_db['lastUserId'] = lastid+1
+        json.dump(json_db, database, indent=4)
 
-    return jsonDB['users'][lastid+1]
+    return json_db['users'][lastid+1]
 
-def updateUser(user_id,user):
+
+def update_user(user_id, user):
     user_id = str(user_id)
     value = None
 
     with open('{}/database/database.json'.format(database_path), "r") as database:
-        jsonDB = json.load(database)
+        json_db = json.load(database)
     with open('{}/database/database.json'.format(database_path), "w") as database:
-        if 'users' not in jsonDB:
-            jsonDB['users'] = {}
-        if 'lastUserId' not in jsonDB:
-            jsonDB['lastUserId'] = -1
+        if 'users' not in json_db:
+            json_db['users'] = {}
+        if 'lastUserId' not in json_db:
+            json_db['lastUserId'] = -1
         
-        if user_id in jsonDB['users']:
-            value = {}
-            
-            for(key,val) in user.items(): 
-                jsonDB['users'][user_id][key] = val
+        if user_id in json_db['users']:
+            for(key, val) in user.items():
+                json_db['users'][user_id][key] = val
 
-            value = jsonDB['users'][user_id]
+            value = json_db['users'][user_id]
         
-        json.dump(jsonDB,database,indent=4)
+        json.dump(json_db, database, indent=4)
 
-    if (value != None):
+    if value != None:
         return value
 
-def deleteUser(user_id):
+
+def delete_user(user_id):
     user_id = str(user_id)
     value = None
     
     with open('{}/database/database.json'.format(database_path), "r") as database:
-        jsonDB = json.load(database)
+        json_db = json.load(database)
     with open('{}/database/database.json'.format(database_path), "w") as database:
-        if 'users' not in jsonDB:
-            jsonDB['users'] = {}
-        if 'lastUserId' not in jsonDB:
-            jsonDB['lastUserId'] = -1
+        if 'users' not in json_db:
+            json_db['users'] = {}
+        if 'lastUserId' not in json_db:
+            json_db['lastUserId'] = -1
         
-        if user_id in jsonDB['users']:
-            value={}
-            value = jsonDB['users'][user_id]
-            del jsonDB['users'][user_id]
+        if user_id in json_db['users']:
+            value = json_db['users'][user_id]
+            del json_db['users'][user_id]
 
-        json.dump(jsonDB,database,indent=4)
+        json.dump(json_db, database, indent=4)
 
-    if(value != None):
+    if value != None:
         return value
-
-if __name__ == '__main__':
-    '''
-    user = {
-        "FirstName": "James",
-        "LastName": "Bond",
-        "Email":"JamesBond@Email.com"
-    }
-    user2 = {
-        "FirstName": "Warren",
-        "LastName": "Buffett",
-        "Email":"WarrenBuffett@Email.com"
-    }
-    '''
-    pass

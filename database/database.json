@@ -8,6 +8,7 @@
             "Email": "JamesBond@Email.com",
             "id": 0,
             "BooksLocations": [
+                "1",
                 "1"
             ]
         },
@@ -17,7 +18,10 @@
             "Email": "WarrenBuffett@Email.com",
             "id": 1,
             "BooksLocations": [
-                "0"
+                "0",
+                "1",
+                "1",
+                "1"
             ]
         }
     },
@@ -43,7 +47,11 @@
             ],
             "Quantity": 5,
             "UsersLocations": [
-                "0"
+                "0",
+                "1",
+                "1",
+                "0",
+                "1"
             ],
             "id": 1
         }
