@@ -1,7 +1,6 @@
 from flask import Flask, jsonify
 from flask.globals import request
 from resource.users import create_user, update_user, delete_user, get_user, get_users
-from resource.reports import get_report_user
 from resource.locations import get_books, get_book, create_book, update_book, delete_book, take_book, vacate_book
 
 app = Flask(__name__)
@@ -169,22 +168,6 @@ def book_vacate(book_id, user_id):
         User vacate a book
     """
     response = vacate_book(book_id, user_id)
-    if response:
-        return jsonify(response)
-    
-    return 'Error', 404
-
-# -------------------------------|
-# Rest Calls for Reports Module.|
-# -------------------------------|
-
-
-@app.route("/reports/<user_id>", methods=['GET'])
-def report_user(user_id):
-    """
-        Return All Books list
-    """
-    response = get_report_user(user_id)
     if response:
         return jsonify(response)
     
