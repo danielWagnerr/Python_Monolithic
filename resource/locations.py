@@ -92,7 +92,6 @@ def take_book(book_id, user_id):
 
     can_locate = False
     added_to_queue = False
-    can_take = False
 
     with open('{}/database/database.json'.format(database_path), "r") as database:
         json_db = json.load(database)
