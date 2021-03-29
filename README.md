@@ -2,9 +2,6 @@
  A proof of concept of a monolithic architecture written in python and using flask and json.
  Simulate a simple library system.
  
-Exercise response of course in Digital Innovation One: Fundamentals of systems architecture ("Fundamentos de arquitetura de sistemas") - module: Architectural concepts in Internet applications ("Conceitos de arquitetura em aplicações para Internet"), class taught by [Jefferson Stachelski](https://github.com/jeffhsta).
-Exercises: https://github.com/jeffhsta/fundamentos_arquitetura
-
 Has a simple automatic id system creation.
 
 Architecture based Example (not equals, just simulates the interactions and comunication workflow):
