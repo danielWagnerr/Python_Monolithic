@@ -90,6 +90,10 @@ def take_book(book_id, user_id):
     book_id = str(book_id)
     user_id = str(user_id)
 
+    can_locate = False
+    added_to_queue = False
+    can_take = False
+
     with open('{}/database/database.json'.format(database_path), "r") as database:
         json_db = json.load(database)
     with open('{}/database/database.json'.format(database_path), "w") as database:
@@ -98,7 +102,8 @@ def take_book(book_id, user_id):
         if 'lastBookId' not in json_db:
             json_db['lastBookId'] = -1
 
-        if (book_id in json_db['books']) and (user_id in json_db['users']):
+        can_take = (book_id in json_db['books']) and (user_id in json_db['users'])
+        if can_take:
             if "UsersLocations" not in json_db['books'][book_id]:
                 json_db['books'][book_id]['UsersLocations'] = []
             if "BooksLocations" not in json_db['users'][user_id]:
@@ -120,17 +125,20 @@ def take_book(book_id, user_id):
             if added_to_queue:
                 json_db['books'][book_id]['WaitingQueue'].append(user_id)
 
-            json.dump(json_db, database, indent=4)
+        json.dump(json_db, database, indent=4)
 
-            return {
-                'located': can_locate,
-                'added_to_queue': added_to_queue
-            }
+    return {
+            'located': can_locate,
+            'added_to_queue': added_to_queue
+    } if can_take else None
 
 
 def vacate_book(book_id, user_id):
     book_id = str(book_id)
     user_id = str(user_id)
+
+    vacated = False
+    took = False
 
     with open('{}/database/database.json'.format(database_path), "r") as database:
         json_db = json.load(database)
@@ -141,10 +149,12 @@ def vacate_book(book_id, user_id):
             json_db['lastBookId'] = -1
 
         if (book_id in json_db['books']) and (user_id in json_db['users']):
-            if ("UsersLocations" in json_db['books'][book_id]) and ("BooksLocations" in json_db['users'][user_id]):
+            took = ("UsersLocations" in json_db['books'][book_id]) and ("BooksLocations" in json_db['users'][user_id])
+            if took:
                 if user_id in json_db['books'][book_id]['UsersLocations']:
                     json_db['books'][book_id]['UsersLocations'].remove(user_id)
                     json_db['users'][user_id]['BooksLocations'].remove(book_id)
+                    vacated = True
 
                 waiting_queue = json_db['books'][book_id]['WaitingQueue']
                 if waiting_queue:
@@ -154,3 +164,5 @@ def vacate_book(book_id, user_id):
                     json_db['users'][user_id]['BooksLocations'].append(book_id)
 
         json.dump(json_db, database, indent=4)
+
+    return {'vacated': vacated} if took else None
