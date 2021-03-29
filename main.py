@@ -28,7 +28,7 @@ def users():
     if response:
         return jsonify(response)
 
-    return 'Error', 404
+    return 'Not Found', 404
 
 
 @app.route("/users", methods=['POST'])
@@ -40,8 +40,8 @@ def user_create():
     response = create_user(request.json)
     if response:
         return jsonify(response)
-    
-    return 'Error', 404
+
+    return 'Not Found', 404
 
 
 @app.route("/users/<user_id>", methods=['PUT'])
@@ -54,7 +54,7 @@ def user_update(user_id):
     if response:
         return jsonify(response)
     
-    return 'Error', 404
+    return 'Not Found', 404
 
 
 @app.route("/users/<user_id>", methods=['GET'])
@@ -66,7 +66,7 @@ def user_data(user_id):
     if response:
         return jsonify(response)
     
-    return 'Error', 404
+    return 'Not Found', 404
 
 
 @app.route("/users/<user_id>", methods=['DELETE'])
@@ -79,7 +79,7 @@ def user_delete(user_id):
     if response:
         return jsonify(response)
     
-    return 'Error', 404
+    return 'Not Found', 404
 
 # ---------------------------------|
 # Rest Calls for Locations Module.|
@@ -96,7 +96,7 @@ def books():
     if response:
         return jsonify(response)
     
-    return 'Error', 404
+    return 'Not Found', 404
 
 
 @app.route("/books", methods=['POST'])
@@ -109,7 +109,7 @@ def book_create():
     if response:
         return jsonify(response)
     
-    return 'Error', 404
+    return 'Not Found', 404
 
 
 @app.route("/books/<book_id>", methods=['PUT'])
@@ -121,7 +121,7 @@ def book_update(book_id):
     if response:
         return jsonify(response)
     
-    return 'Error', 404
+    return 'Not Found', 404
 
 
 @app.route("/books/<book_id>", methods=['GET'])
@@ -134,7 +134,7 @@ def book_data(book_id):
     if response:
         return jsonify(response)
     
-    return 'Error', 404
+    return 'Not Found', 404
 
 
 @app.route("/books/<book_id>", methods=['DELETE'])
@@ -147,7 +147,7 @@ def book_delete(book_id):
     if response:
         return jsonify(response)
     
-    return 'Error', 404
+    return 'Not Found', 404
 
 
 @app.route("/books/take/<book_id>/<user_id>", methods=['POST'])
@@ -159,7 +159,7 @@ def book_take(book_id, user_id):
     if response:
         return jsonify(response)
     
-    return 'Error', 404
+    return 'Not Found', 404
 
 
 @app.route("/books/vacate/<book_id>/<user_id>", methods=['POST'])
@@ -171,7 +171,7 @@ def book_vacate(book_id, user_id):
     if response:
         return jsonify(response)
     
-    return 'Error', 404
+    return 'Not Found', 404
 
 
 if __name__ == '__main__':
