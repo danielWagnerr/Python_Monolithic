@@ -1,7 +1,6 @@
 from flask import Flask, jsonify
 from flask.globals import request
-from resource.users import create_user, update_user, delete_user, get_user, get_users
-from resource.locations import get_books, get_book, create_book, update_book, delete_book, take_book, vacate_book
+from resources import users, books
 
 app = Flask(__name__)
 
@@ -14,7 +13,7 @@ def init():
     return "Hello! The application is up, simulating a monolithic architecture."
 
 # -----------------------------|
-# Rest Calls for Users Module.|
+# REST Calls for Users Module.|
 # -----------------------------|
 
 
@@ -24,7 +23,7 @@ def users():
         Return All Users list
     """
 
-    response = get_users()
+    response = users.get_users()
     if response:
         return jsonify(response)
 
@@ -37,7 +36,7 @@ def user_create():
         Create User
     """
 
-    response = create_user(request.json)
+    response = users.create_user(request.json)
     if response:
         return jsonify(response)
 
@@ -50,7 +49,7 @@ def user_update(user_id):
         Update User
     """
 
-    response = update_user(user_id, request.json)
+    response = users.update_user(user_id, request.json)
     if response:
         return jsonify(response)
     
@@ -62,7 +61,7 @@ def user_data(user_id):
     """
         Get User Data
     """
-    response = get_user(user_id)
+    response = users.get_user(user_id)
     if response:
         return jsonify(response)
     
@@ -75,7 +74,7 @@ def user_delete(user_id):
         Delete User
     """
 
-    response = delete_user(user_id)
+    response = users.delete_user(user_id)
     if response:
         return jsonify(response)
     
@@ -92,7 +91,7 @@ def books():
         Return All Books list
     """
 
-    response = get_books()
+    response = books.get_books()
     if response:
         return jsonify(response)
     
@@ -105,7 +104,7 @@ def book_create():
         Create Book
     """
 
-    response = create_book(request.json)
+    response = books.create_book(request.json)
     if response:
         return jsonify(response)
     
@@ -117,7 +116,7 @@ def book_update(book_id):
     """
         Update Book
     """
-    response = update_book(book_id, request.json)
+    response = books.update_book(book_id, request.json)
     if response:
         return jsonify(response)
     
@@ -130,7 +129,7 @@ def book_data(book_id):
         Get Book Data
     """
 
-    response = get_book(book_id)
+    response = books.get_book(book_id)
     if response:
         return jsonify(response)
     
@@ -143,7 +142,7 @@ def book_delete(book_id):
         Delete Book
     """
 
-    response = delete_book(book_id)
+    response = books.delete_book(book_id)
     if response:
         return jsonify(response)
     
@@ -155,7 +154,7 @@ def book_take(book_id, user_id):
     """
         User takes a specific book
     """
-    response = take_book(book_id, user_id)
+    response = books.take_book(book_id, user_id)
     if response:
         return jsonify(response)
     
@@ -167,7 +166,7 @@ def book_vacate(book_id, user_id):
     """
         User vacate a book
     """
-    response = vacate_book(book_id, user_id)
+    response = books.vacate_book(book_id, user_id)
     if response:
         return jsonify(response)
     
