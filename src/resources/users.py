@@ -1,6 +1,6 @@
 import json
 
-from resources.database import get_database
+from src.resources.database import get_database
 
 
 def get_users() -> dict:
@@ -22,6 +22,9 @@ def get_user(user_id: int) -> dict:
 
 
 def create_user(user: dict) -> dict:
+    if not user or not all(k in user for k in ("FirstName", "LastName", "Email")):
+        return {"error": "Incorrect payload"}
+
     database_path = get_database()
 
     with open(database_path, "r") as database:

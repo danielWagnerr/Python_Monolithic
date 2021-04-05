@@ -1,6 +1,10 @@
-{
+import json
+
+from src.resources import database
+
+db = """{
     "lastUserId": 1,
-    "lastBookId": 2,
+    "lastBookId": 1,
     "users": {
         "0": {
             "FirstName": "James",
@@ -50,4 +54,9 @@
             "id": 1
         }
     }
-}
+}"""
+
+
+def setup_test_database() -> None:
+    with open(database.get_database('database_test'), 'w',  encoding='utf-8') as f:
+        json.dump(json.loads(db), f, ensure_ascii=False, indent=4)

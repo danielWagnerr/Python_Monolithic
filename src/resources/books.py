@@ -1,6 +1,6 @@
 import json
 
-from resources.database import get_database
+from src.resources.database import get_database
 
 
 def get_books():
@@ -21,7 +21,10 @@ def get_book(book_id):
     return json_db['books'].get(str(book_id))
 
 
-def create_book(book):
+def create_book(book: dict):
+    if not book or not all(k in book for k in ("Name", "Authors", "Quantity")):
+        return {"error": "Incorrect payload"}
+
     database_path = get_database()
 
     with open(database_path, "r") as database:
