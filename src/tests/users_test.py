@@ -1,12 +1,12 @@
 from unittest import TestCase, mock
 
-from src.resources import users, database
-from src.tests import setup
+from resources import users, database
+from tests import setup
 
 database_path = database.get_database('database_test')
 
 
-@mock.patch('src.resources.users.get_database', return_value=database_path)
+@mock.patch('resources.users.get_database', return_value=database_path)
 class TestUsers(TestCase):
     """
     Os testes estão ordenados em ordem alfabética, pois estamos realizando operações no banco de dados

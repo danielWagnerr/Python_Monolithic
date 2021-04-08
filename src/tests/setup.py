@@ -1,6 +1,6 @@
 import json
 
-from src.resources import database
+from resources import database
 
 db = """{
     "lastUserId": 1,

@@ -1,6 +1,6 @@
-from flask import Flask, jsonify, Response
+from flask import Flask, jsonify
 from flask.globals import request
-from src.resources import users, books
+from resources import users, books
 
 app = Flask(__name__)
 

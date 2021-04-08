@@ -1,6 +1,6 @@
 import json
 
-from src.resources.database import get_database
+from resources.database import get_database
 
 
 def get_users() -> dict:
