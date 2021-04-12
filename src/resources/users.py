@@ -31,6 +31,7 @@ def create_user(user: dict) -> dict:
 
         json_db['users'][user_id] = user
         json_db['users'][user_id]['id'] = user_id
+        json_db['users'][user_id]['BooksLocations'] = []
         json_db['lastUserId'] = user_id
 
     with open(database_path, "w") as database:
