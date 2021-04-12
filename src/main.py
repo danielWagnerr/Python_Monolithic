@@ -72,7 +72,7 @@ def user_delete(user_id):
 
 
 # ---------------------------------|
-# Rest Calls for Locations Module.|
+# Rest Calls for Books Module.|
 # ---------------------------------|
 
 

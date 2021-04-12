@@ -1,11 +1,11 @@
 import json
 
-from resources.database import get_database
+from resources.database import get_database_path
+
+database_path = get_database_path()
 
 
 def get_users() -> dict:
-    database_path = get_database()
-
     with open(database_path, "r") as database:
         json_db = json.load(database)
 
@@ -13,8 +13,6 @@ def get_users() -> dict:
 
 
 def get_user(user_id: int) -> dict:
-    database_path = get_database()
-
     with open(database_path, "r") as database:
         json_db = json.load(database)
 
@@ -24,8 +22,6 @@ def get_user(user_id: int) -> dict:
 def create_user(user: dict) -> dict:
     if not user or not all(k in user for k in ("FirstName", "LastName", "Email")):
         return {"error": "Incorrect payload"}
-
-    database_path = get_database()
 
     with open(database_path, "r") as database:
         json_db = json.load(database)
@@ -44,8 +40,6 @@ def create_user(user: dict) -> dict:
 
 
 def update_user(user_id: int, user: dict) -> dict:
-    database_path = get_database()
-
     user_id = str(user_id)
     value = None
 
@@ -65,8 +59,6 @@ def update_user(user_id: int, user: dict) -> dict:
 
 
 def delete_user(user_id: int) -> dict:
-    database_path = get_database()
-
     user_id = str(user_id)
     value = None
 

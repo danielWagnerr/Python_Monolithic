@@ -1,31 +1,27 @@
 import json
 
-from resources.database import get_database
+from resources.database import get_database_path
+
+database_path = get_database_path()
 
 
-def get_books():
-    database_path = get_database()
-
+def get_books() -> dict:
     with open(database_path, "r") as database:
         json_db = json.load(database)
 
     return json_db['books']
 
 
-def get_book(book_id):
-    database_path = get_database()
-
+def get_book(book_id) -> dict:
     with open(database_path, "r") as database:
         json_db = json.load(database)
 
     return json_db['books'].get(str(book_id))
 
 
-def create_book(book: dict):
+def create_book(book: dict) -> dict:
     if not book or not all(k in book for k in ("Name", "Authors", "Quantity")):
         return {"error": "Incorrect payload"}
-
-    database_path = get_database()
 
     with open(database_path, "r") as database:
         json_db = json.load(database)
@@ -43,9 +39,7 @@ def create_book(book: dict):
     return json_db['books'][book_id]
 
 
-def update_book(book_id, book):
-    database_path = get_database()
-
+def update_book(book_id, book) -> dict:
     value = None
     book_id = str(book_id)
 
@@ -64,9 +58,7 @@ def update_book(book_id, book):
     return value
 
 
-def delete_book(book_id):
-    database_path = get_database()
-
+def delete_book(book_id) -> dict:
     book_id = str(book_id)
     value = None
 
@@ -83,9 +75,7 @@ def delete_book(book_id):
     return value
 
 
-def take_book(book_id, user_id):
-    database_path = get_database()
-
+def take_book(book_id, user_id) -> dict:
     book_id = str(book_id)
     user_id = str(user_id)
 
@@ -122,9 +112,7 @@ def take_book(book_id, user_id):
     } if can_take else None
 
 
-def vacate_book(book_id, user_id):
-    database_path = get_database()
-
+def vacate_book(book_id, user_id) -> dict:
     book_id = str(book_id)
     user_id = str(user_id)
 
